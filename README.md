@@ -2,7 +2,7 @@
 Расчеты, анализ, код на языке sql
 
 ---
-Для расчета использовать общедоступные данные [bookings](https://postgrespro.ru/education/demodb) "Авиаперевозки"
+Для расчета использовал общедоступные данные [bookings](https://postgrespro.ru/education/demodb) "Авиаперевозки"
 ```
 -- Рассчитывал LTV по формуле: Средний чек х частота покупок х время жизни
 WITH passenger_lifetime AS (
