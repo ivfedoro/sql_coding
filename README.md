@@ -4,8 +4,7 @@
 ---
 
 ```
-*-- Рассчитывал LTV по формуле: Средний чек х частота покупок х время жизни*
-
+-- Рассчитывал LTV по формуле: Средний чек х частота покупок х время жизни
 WITH passenger_lifetime AS (
 SELECT
 	t.passenger_id,
@@ -13,7 +12,7 @@ SELECT
 	b.total_amount,
 	AVG(b.total_amount) AS avg_revenue,
 	COUNT(DISTINCT b.book_ref) AS frequency_purchase,
-*-- взял время жизни клиента с момента бронирования до вылета, что гарантирует выполенине сделки*
+-- взял время жизни клиента с момента бронирования до вылета, что гарантирует выполенине сделки
 	EXTRACT(EPOCH FROM (MAX(f.scheduled_departure) - MIN(b.book_date))) / 86400 AS lifetime 
 FROM bookings.tickets t
 LEFT JOIN bookings.bookings b ON t.book_ref = b.book_ref
